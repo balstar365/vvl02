@@ -39,9 +39,7 @@ jobs:
           --identifier-names-generator hexadecimal \
           --rename-globals true \
           --string-array true \
-          --string-array-encoding 'rc4' \
-          --string-array-threshold 0.75 \
-          --unicode-escape-sequence true
+          --string-array-threshold 0.5
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -50,3 +48,6 @@ jobs:
           commit_message: ':arrow_up: update latest bpb panel'
           commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
           push_options: '--set-upstream'
+
+      - name: Pull latest changes
+        run: git pull origin main
